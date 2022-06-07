@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.layer.sys.engine.mapper.SysUserMapper">
+
+    <resultMap type="com.example.layer.sys.engine.domain.core.SysUser" id="SysUserResult">
+        <id property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="email" column="email"/>
+        <result property="status" column="status"/>
+        <result property="loginName" column="login_name"/>
+        <result property="avatar" column="avatar"/>
+        <result property="birthday" column="birthday"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <select id="iPageSelect" resultType="com.example.layer.sys.engine.domain.core.SysUser">
+        select u.user_id, u.username,u.login_name, u.password, u.phone, u.sex, u.email, u.status, u.age,  u.avatar,
+        u.birthday, u.status, u.create_time,d.dept_id
+        from sys_user_dept d
+        left join sys_user u on d.user_id = u.user_id
+        WHERE (d.dept_id =#{sysUserDeptBean.deptId} OR d.dept_id IN (
+        select t.dept_id from sys_dept t where cast(#{sysUserDeptBean.deptId} as VARCHAR) =
+        ANY (string_to_array(t.ancestors,',')))) and u.is_deleted = 0
+        <if test="sysUserDeptBean.username != null and sysUserDeptBean.username != ''">
+            AND u.username like concat('%', #{sysUserDeptBean.username}, '%')
+        </if>
+        <if test="sysUserDeptBean.loginName != null and sysUserDeptBean.loginName != ''">
+            AND u.login_name like concat('%', #{sysUserDeptBean.loginName}, '%')
+        </if>
+        <if test="sysUserDeptBean.phone != null and sysUserDeptBean.phone != ''">
+            AND u.phone like concat('%', #{sysUserDeptBean.phone}, '%')
+        </if>
+        order by convert_to(u.username,'GBK')
+    </select>
+
+</mapper>

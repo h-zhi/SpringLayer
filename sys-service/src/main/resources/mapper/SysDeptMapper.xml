@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.layer.sys.engine.mapper.SysDeptMapper">
+
+    <resultMap type="com.example.layer.sys.engine.domain.core.SysDept" id="SysDeptResult">
+        <id property="deptId" column="dept_id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="ancestors" column="ancestors"/>
+        <result property="orderNum" column="order_num"/>
+        <result property="status" column="status"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="description" column="description"/>
+    </resultMap>
+    <!--zyl查询子部门通过部门id-->
+    <select id="selectChildrenDeptById" resultMap="SysDeptResult">
+        SELECT  * FROM  sys_dept     WHERE #{id} = ANY (string_to_array(ancestors,','))
+    </select>
+    <!--zyl查询部门及其子部门通过部门id-->
+    <select id="selectAllDeptByDeptId" resultMap="SysDeptResult">
+      SELECT  * FROM  sys_dept     WHERE #{deptId} = ANY (string_to_array(ancestors,','))  OR  dept_id = #{deptId}
+    </select>
+</mapper>

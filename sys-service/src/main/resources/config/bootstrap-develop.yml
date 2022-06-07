@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: ${datasource.postgre.url}/layer_sys
+    driver-class-name: ${datasource.postgre.driver-class-name}
+    username: ${datasource.postgre.username}
+    password: ${datasource.postgre.password}
+
+logging:
+  config: classpath:log/logback_${spring.profiles.active}.xml
