@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        prefix: gateway
+        file-extension: yml
