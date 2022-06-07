@@ -1,0 +1,10 @@
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        prefix: auth-service
+#        file-extension: yml
+#        ext-config:
+#          - dataId: valuation.yml
+#            refresh: true
+#            group: VALUATION
