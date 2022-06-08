@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SpringLayer.iml" filepath="$PROJECT_DIR$/.idea/SpringLayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/auth-service/auth-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-service/sys-client/sys-client.iml" filepath="$PROJECT_DIR$/sys-service/sys-client/sys-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-service/sys-common/sys-common.iml" filepath="$PROJECT_DIR$/sys-service/sys-common/sys-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sys-service/sys-service.iml" filepath="$PROJECT_DIR$/sys-service/sys-service.iml" />
     </modules>
   </component>
 </project>

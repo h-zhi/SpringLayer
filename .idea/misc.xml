@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/sys-service/sys-common/pom.xml" />
         <option value="$PROJECT_DIR$/sys-service/sys-client/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/pom.xml" />
       </list>
     </option>
   </component>
