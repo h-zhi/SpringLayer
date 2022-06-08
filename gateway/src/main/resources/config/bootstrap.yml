@@ -5,23 +5,3 @@ spring:
     allow-bean-definition-overriding: true
   profiles:
     active: dev
-#  redis:
-#    database: 0
-#    port: 6379
-#    host: 192.168.1.253
-#feign:
-#  hystrix:
-#    enabled: false
-#    #sentinel:
-#    #enabled: true
-#  okhttp:
-#    enabled: true
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        timeout:
-#          enabled: true
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000

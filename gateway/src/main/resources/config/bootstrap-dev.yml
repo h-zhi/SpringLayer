@@ -1,69 +1,18 @@
+discovery:
+  server: 192.168.1.253:8848
+  group: dev
+  namespace: 99d1c138-af0e-4ccd-82f7-7a58d917ce96
+  username: zkzx
+  password: zkzx666
+config:
+  server: 192.168.1.253:8848
+  group: dev
+  namespace: 99d1c138-af0e-4ccd-82f7-7a58d917ce96
+  username: zkzx
+  password: zkzx666
 spring:
   cloud:
     nacos:
       config:
         prefix: gateway
         file-extension: yml
-#spring:
-#  cloud:
-#    gateway:
-#      globalcors:
-#        corsConfigurations:
-#          '[/**]':
-#            allow-credentials: true
-#            allowed-origin-patterns: '*'
-#            allowed-headers: '*'
-#            allowed-methods: '*'
-#            max-age: 3600
-#      discovery:
-#        locator:
-#          enabled: true #开启从注册中心动态创建路由的功能
-#          lower-case-service-id: true
-#      routes:
-#        - id: sys-service
-#          uri: lb://sys-service
-#          predicates:
-#            - Path=/layer/v1/sys-service/**
-#          filters:
-#            - StripPrefix=3
-#        - id: auth-service
-#          uri: lb://auth-service
-#          predicates:
-#            - Path=/layer/v1/auth-service/**
-#          filters:
-#            - StripPrefix=3
-#        - id: dict-service
-#          uri: lb://dict-service
-#          predicates:
-#            - Path=/layer/v1/dict-service/**
-#          filters:
-#            - StripPrefix=3
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          jwk-set-uri: http://192.168.1.254:9081/rsa/publicKey
-#secure:
-#  ignore:
-#    urls:
-#      - "/layer/v1/sys-service/**"
-#      - "/layer/v1/sys-service/doc.html"
-#      - "/actuator/**"
-#      - "/layer/v1/auth-service/rsa/publicKey"
-#      - "/layer/v1/sys-service/login"
-#      - "/layer/v1/auth-service/oauth/token"  #测试登录认证
-#      - "/layer/v1/auth-service/oauth/logout" #登出
-#      - "/layer/v1/auth-service/obtain/captcha" #获取验证码
-#  base:
-#    urls:
-#      - "/layer/v1/sys-service/user/modify/info"
-#      - "/layer/v1/sys-service/user/menu/ztree"
-#  wildcard:
-#    urls:
-#      - "/layer/v1/sys-service/main/**"
-#
-#ribbon:
-#  # 值的是建立连接所用的时间，使用与网络状态正常的情况，两端连接所用的时间
-#  ReadTimeout: 5000
-#  # 指的是建立连接后从服务器读取到可用资源所用的时间
-#  ConnectionTimeout: 5000
